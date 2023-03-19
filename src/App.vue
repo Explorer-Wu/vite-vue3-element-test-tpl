@@ -1,26 +1,31 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from '@/components/HelloWorld.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
+  <el-config-provider namespace="ep">
+    <BaseHeader />
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <BaseSide />
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+      <div>
+        <img alt="Vue logo" class="logo" src="@/assets/img/logo.svg" />
+        <HelloWorld msg="Hello Vue 3.0 + Element Plus + Vite" />
+
+        <RouterView />
+      </div>
     </div>
-  </header>
-
-  <RouterView />
+  </el-config-provider>
 </template>
 
+
 <style scoped>
+#app {
+  text-align: center;
+  color: var(--ep-text-color-primary);
+}
+
 header {
   line-height: 1.5;
   max-height: 100vh;
@@ -28,6 +33,7 @@ header {
 
 .logo {
   display: block;
+  width: 50%;
   margin: 0 auto 2rem;
 }
 
